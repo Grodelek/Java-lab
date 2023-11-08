@@ -1,0 +1,23 @@
+
+public class lab5Zad2 {
+
+    public static void main(String[] args) {
+        short lanbit1=12;
+        short lanbit2=-35;
+
+        System.out.println(~lanbit1);
+        System.out.println(~lanbit2);
+        System.out.println(lanbit1&lanbit2);
+        System.out.println(~lanbit1&lanbit2);
+        System.out.println(~(lanbit1&lanbit2));
+        System.out.println(lanbit1|lanbit2);
+        System.out.println(~(lanbit1|lanbit2));
+        System.out.println(~lanbit1|lanbit2);
+        System.out.println(lanbit1^lanbit2);
+        System.out.println(~(lanbit1^lanbit2));
+
+
+
+    }
+
+}
