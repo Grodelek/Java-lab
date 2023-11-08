@@ -1,0 +1,21 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+public class lab5Zad1 {
+
+    public static void main(String[] args) {
+        BigDecimal num1 = new BigDecimal("123.456");
+        BigDecimal num2 = new BigDecimal("321.123");
+        BigDecimal suma = num1.add(num2);
+        BigDecimal roznica = num1.subtract(num2);
+        BigDecimal iloczyn = num1.multiply(num2);
+        BigDecimal iloraz = num1.divide(num2,2, RoundingMode.HALF_UP);
+        System.out.println("num1 = "+num1+"\nnum2 = "+num2);
+        System.out.println("suma = "+suma);
+        System.out.println("roznica = "+roznica);
+        System.out.println("iloczyn = "+iloczyn);
+        System.out.println("iloraz = "+iloraz);
+
+    }
+
+}
