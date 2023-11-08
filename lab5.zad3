@@ -1,0 +1,15 @@
+import java.util.*;
+public class lab5Zad3 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Podaj numer ktory chcesz zamienic na zapis binarny");
+        int num = sc.nextInt();
+        toBinary(num);
+
+    }
+    static void toBinary(int a){
+       String Binary = Integer.toBinaryString(a);
+        System.out.println(Binary);
+    }
+}
