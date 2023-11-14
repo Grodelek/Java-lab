@@ -1,0 +1,12 @@
+public class Lab6Zad5 {
+  public static void main(String[] args) {
+    String pozdrowienie = "Hello";
+    char indexC = pozdrowienie.charAt(0);
+    System.out.println("Litera na podanym indexie to: "+indexC);
+    //Zwraca nam Litere na danym indexie zaczynajac od 0
+    int punktC = pozdrowienie.codePointAt(0);
+    System.out.println("Wartosc na danym indexie to: "+punktC);
+    //Zwraca nam wartosc Unicode punktu na danym indexie w lancuchu
+    
+  }
+}
