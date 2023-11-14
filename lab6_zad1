@@ -1,0 +1,23 @@
+import java.util.Date;
+
+public class Lab6Zad1 {
+  public static void main(String[] args) {
+      String s1="ANS";
+        System.out.println("a) "+s1);
+
+      String s2 = new String("ANS");
+        System.out.println("b) "+s2);
+
+      String s3 = new String(s1);
+        System.out.println("c) "+s3);
+
+      char[] tabZnakowa = {'a','b','c'};
+      String s4 = new String(tabZnakowa);
+        System.out.println("d) "+s4);
+        
+        System.out.println("Dzisiaj jest "+ new Date());
+
+
+
+    }
+}
