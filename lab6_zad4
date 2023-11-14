@@ -1,0 +1,9 @@
+public class Lab6Zad4 {
+  public static void main(String[] args) {
+    String val1 = "\u5B66\uD8F0\uDE30";
+    int length = val1.length();
+     System.out.println("Dlugosc lancucha wynosi:" +length);
+     int liczK = val1.codePointCount(0,val1.length());
+    System.out.println("Liczba jednostek kodowych: "+liczK);
+  }
+}
