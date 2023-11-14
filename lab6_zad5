@@ -7,6 +7,15 @@ public class Lab6Zad5 {
     int punktC = pozdrowienie.codePointAt(0);
     System.out.println("Wartosc na danym indexie to: "+punktC);
     //Zwraca nam wartosc Unicode punktu na danym indexie w lancuchu
-    
+
+    int cp1=0,cp2=0;
+    String val1 = "\u0041\uD8F0\uDE30";
+    cp1=val1.codePointAt(0);
+    cp2=val1.codePointAt(1);
+    System. out. println("Jednostka kodowa dla 0="+cp1);
+    System. out. println("Jednostka kodowa dla 1="+cp2);
+
+    System.out.println("Jednostka kodowa cp1 jest znakiem surogatowym  = "+Character.isSupplementaryCodePoint(cp1));
+    System.out.println("Jednostka kodowa cp2 jest znakiem surogatowym  = "+Character.isSupplementaryCodePoint(cp2));
   }
 }
