@@ -1,0 +1,33 @@
+public class Lab6Zad6 {
+  public static void main(String[] args) {
+
+    String obi1 = "abc";
+    String obi2 = "abc";
+    String obi3 = "bCC";
+    String obi4 = "bcc";
+
+
+    boolean porownanie1 = obi2.equals(obi1);
+    System.out.println("czy obiekt 2 jest taki sam jak ob1: "+porownanie1);
+    boolean porownanie2 = obi3.equalsIgnoreCase(obi1);
+    System.out.println("Czy obiekt 3 jest taki sam bez wzgledu na wielkosc liter jak obiekt 1 "+porownanie2);
+
+    int porownanie3 = obi4.compareTo(obi1);
+    if(porownanie3 < 0){
+      System.out.println("Ciag "+obi1+" Lezy przed ciagiem "+obi4);
+    } else if (porownanie3 > 0) {
+      System.out.println("Ciag "+obi1+" Lezy po ciagu "+obi4);
+    }else{
+      System.out.println("Oba ciagi sa rowne");
+    }
+
+    int porownanie4 = obi3.compareToIgnoreCase(obi1);
+    if(porownanie4 < 0){
+      System.out.println("Ciag "+obi1+" Lezy przed ciagiem "+obi3);
+    } else if (porownanie4 > 0) {
+      System.out.println("Ciag "+obi1+" Lezy po ciagu "+obi3);
+    }else{
+      System.out.println("Oba ciagi sa rowne");
+    }
+  }
+}
