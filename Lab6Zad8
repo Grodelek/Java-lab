@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Lab6Zad8 {
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    String tekst;
+    int poz1; int poz2;
+        System.out.println("Podaj tekst:");
+        tekst = sc.next();
+        System.out.println("Podaj od jakiego indeksu ma pobierac fragment: ");
+        poz1 = sc.nextInt();
+        System.out.println("Podaj do jakiego indeksu ma pobierac fragment: ");
+        poz2 = sc.nextInt();
+        String sub = tekst.substring(poz1,poz2);
+        System.out.println("Tekst od podanego zakresu indeksow: "+sub);
+
+    }
+}
