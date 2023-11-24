@@ -1,0 +1,38 @@
+
+public class Main {
+    public static void main(String[] args) {
+
+
+    }
+}
+class Kierownica{
+    boolean krecWPrawo(){
+        return true;
+    }
+    boolean krecWLewo(){
+        return false;
+    }
+    void zablokuj(){
+
+    }
+    void odblokuj(){
+
+    }
+}
+class Samochod_2{
+    int kola;
+    int siedzenia;
+    Kierownica kierownica = new Kierownica();
+   void Samochod(int kola, int siedzenia){
+
+   }
+    Kierownica getKierownica(){
+       return kierownica;
+   }
+    boolean startuj(){
+        return true;
+    }
+    void hamuj(int jak){
+
+    }
+   }
