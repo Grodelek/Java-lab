@@ -1,0 +1,48 @@
+
+public class Main {
+    public static void main(String[] args) {
+     Samochod_1 car = new Samochod_1();
+     Kierownica kierownica = new Kierownica();
+     car.kierownica = 4; // Blad poniewaz kierownica jest obiektem tak samo jak car.
+     car.siedzenia = 5; //poprawne
+     car.startuj().krecWPrawo(); // blad chcemy odwolac sie do dwoch metod na raz za pomoca kropek.
+     car.getKierownica(); // car nie ma metody o nazwie getKierownica
+//   Kierownica k = car.kierownica; // poprawne przypisujemy do k referencje do obiektu Kierownica
+   System.out.println(car.krecWLewo); // Blad musielibysmy sie odwolac jeszcze do kierownicy
+//   czyli car.kierownica.krecwLewo();
+        System.out.println(car.zablokuj()); // taki sam przypadek jak wyzej. trzeba by bylo przypisac jeszcze kierownice
+        kierownica.zablokuj(); // jesli mamy stworzony obiekt w klasie wywolujacej to jest to poprawne.
+        car.kierownica.krecWLewo(); // poprawne
+        System.out.println(car.kierownica.krecWPrawo()); // poprawne
+        a.startuj().zablokuj(); // blad nie mamy stworzonego obiektu a. 
+        
+    }
+}
+class Kierownica{
+    boolean krecWPrawo(){
+        return true;
+    }
+    boolean krecWLewo(){
+        return false;
+    }
+    void zablokuj(){
+
+    }
+    void odblokuj(){
+
+    }
+}
+class Samochod_1{
+    int kola;
+    int siedzenia;
+    Kierownica kierownica = new Kierownica();
+    boolean startuj(){
+        return true;
+    }
+    void hamuj(int jak){
+
+    }
+    void przyspiesz(){
+
+    }
+   }
