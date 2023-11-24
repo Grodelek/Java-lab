@@ -1,0 +1,34 @@
+public class Main {
+    public static void main(String[] args) {
+        Samochod a = new Samochod();
+        a.kola = 4; //Poprawne
+        a.siedzenia(5); //Blad kompilacji poniewaz siedzenie jest zmienna a nie metoda przez
+        // co nie mozemy przypisac wartosci w nawiasach
+        startuj() //Blad poniewaz nie ma odwolania do obiektu, poprawnym byloby a.startuj();
+        a.startuj(2); //Blad poniewaz metoda startuj nie uzywa w sobie zadnej wartosci typu int
+        a.hamuj(20); //Poprawne
+        System.out.println(a.hamuj(2)); //Blad poniewaz metoda hamuj jest typu void czyli nie zwraca zadnej wartosci.
+        System.out.println(a.startuj()); // Poprawne
+        a = a.startuj(); // Blad poniewaz a jest obiektem
+       wynik = a.startuj(); // Wynik nigdzie w programie nie jest zainicjowany.
+         wynik = a.startuj(); // startuj jest metoda boolean wiec nie zwraca wartosci typu int.
+        boolean wynik = a.startuj(); // poprawne
+        boolean wynik a.przyspiesz(); //blad metoda przyspiesz jest oznaczona jako void wiec nie zwraca wartosci.
+
+    }
+}
+class Samochod{
+    int kola;
+    int siedzenia;
+    int kierownica;
+    boolean startuj(){
+        boolean ifTrue = true;
+        return ifTrue;
+    }
+   public  void hamuj(int jak){
+       System.out.println("Samochod hamuje z sila "+jak);
+   }
+   public void przyspiesz(){
+
+   }
+}
