@@ -1,0 +1,66 @@
+
+public class Main {
+    public static void main(String[] args) {
+    Samochod_2 samochod = new Samochod_2(4,5);
+
+        System.out.println("Start samochodu: "+ Samochod_2.startuj());
+        Samochod_2.przyspiesz(40);
+        System.out.println("Przyspieszenie samochodu o : "+ Samochod_2.getPrzyspiesz());
+        Samochod_2.hamuj(15);
+        System.out.println("Zachamowanie samochodu o : "+samochod.getHamowanie());
+        System.out.println("Skrecenie w lewo: "+samochod.kierownica.krecWLewo());
+        System.out.println("Skrecenie w prawo: "+samochod.kierownica.krecWPrawo());
+        Samochod_2.przyspiesz(10);
+        System.out.println("Przyspieszenie samochodu o : "+ Samochod_2.getPrzyspiesz());
+        Samochod_2.hamuj(50);
+        System.out.println("Zachamowanie samochodu o : "+samochod.getHamowanie());
+
+
+    }
+}
+class Kierownica{
+
+    boolean krecWPrawo(){
+        return true;
+    }
+    boolean krecWLewo(){
+        return true;
+    }
+    void zablokuj(){
+
+    }
+    void odblokuj(){
+
+    }
+}
+class Samochod_2{
+
+    Kierownica kierownica = new Kierownica();
+    private static int przyspieszanie;
+    private static int hamowanie;
+    public Samochod_2(int kola, int siedzenia)
+    {
+    }
+
+
+    Kierownica getKierownica(){
+        return kierownica;
+    }
+    static boolean startuj(){
+        return true;
+    }
+
+    static void przyspiesz(int jak) {
+        przyspieszanie = jak;
+    }
+
+    public static int getPrzyspiesz() {
+        return przyspieszanie;
+    }
+    static void hamuj(int jak){
+        hamowanie = jak;
+    }
+    public int getHamowanie(){
+        return hamowanie;
+    }
+}
