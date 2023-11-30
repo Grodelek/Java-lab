@@ -1,0 +1,29 @@
+public class Lab8Zad2 {
+    public static void main(String[] args) {
+    Box pudelko = new Box(2.0,4.0,5.0);
+    double obj = pudelko.objetosc();
+    double szescian = pudelko.szescian(obj);
+        System.out.println("Objetosc pudelka: "+obj);
+        System.out.println("Bok pudelka o zadanej objetosci : "+szescian);
+    }
+}
+class Box {
+    double dlugosc;
+    double szerokosc;
+    double wysokosc;
+
+    public Box(double dlugosc,double szerokosc,double wysokosc)
+    {
+        this.dlugosc = dlugosc;
+        this.szerokosc = szerokosc;
+        this.wysokosc = wysokosc;
+    }
+    public double objetosc()
+    {
+    return dlugosc*szerokosc*wysokosc;
+    }
+    public double szescian(double objetosc)
+    {
+       return Math.pow(objetosc,1.0/3.0);
+    }
+}
