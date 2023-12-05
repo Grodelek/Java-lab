@@ -1,0 +1,46 @@
+import java.util.Scanner;
+public class Uczelnia1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Student1 student1 = new Student1();
+        student1.imie = "Artur";
+        student1.nazwisko = "Grodel";
+
+        //Wczytywanie z zabezpieczeniem formatu
+        System.out.println("Podaj ocene 1: ");
+        while(! sc.hasNextInt()){
+            System.out.println("To nie jest liczba");
+            System.out.println("Podaj liczbe:");
+            sc.next();
+        }student1.ocena1 = sc.nextInt();
+
+        System.out.println("Podaj ocene 2: ");
+        while(! sc.hasNextInt()){
+            System.out.println("To nie jest liczba");
+            System.out.println("Podaj liczbe: ");
+            sc.next();
+        }student1.ocena2 = sc.nextInt();
+        student1.srednia();
+        student1.wypisz();
+
+    }
+}
+class Student1 {
+    String nazwisko;
+    String imie;
+    int ocena1;
+    int ocena2;
+    double srednia;
+
+    void srednia() {
+        this.srednia = ((double) this.ocena1 + (double) this.ocena2) / 2.0;
+    }
+
+    public void wypisz() {
+        System.out.println("Nazwisko: " + this.nazwisko);
+        System.out.println("Imie: " + this.imie);
+        System.out.println("Ocena 1: " + this.ocena1);
+        System.out.println("Ocena 2: " + this.ocena2);
+        System.out.println("Srednia ocen: " + this.srednia);
+    }
+}
