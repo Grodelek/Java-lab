@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class Uczelnia2 {
+    public static void main(String[] args) {
+    Scanner sc =new Scanner(System.in);
+    Student2 student2 = new Student2("Artur","Grodel");
+        System.out.println(student2.imie);
+        System.out.println(student2.nazwisko);
+    student2.wstawOcene();
+        System.out.println("Srednia ocen: "+ student2.srednia());
+    }
+}
+class Student2{
+    private int ocena1;
+    private int ocena2;
+    String nazwisko;
+    String imie;
+    Student2(String nazwisko, String imie){
+        this.nazwisko = nazwisko;
+        this.imie = imie;
+    }
+    boolean wstawOcene() {
+        Scanner sc = new Scanner(System.in);
+        boolean oceny = false;
+        do {
+            System.out.println("Podaj ocene1: ");
+            this.ocena1 = sc.nextInt();
+            System.out.println("Podaj ocene2: ");
+            this.ocena2 = sc.nextInt();
+            if (this.ocena1 < 2 || this.ocena1 > 5 || this.ocena2 < 2 || this.ocena2 > 5) {
+                System.out.println("Blad, ocena powinna nalezec do zakresu [2-5]");
+                oceny = false;
+                System.out.println("Podaj ocene1:");
+                sc.next();
+                System.out.println("Podaj ocene2:");
+                sc.next();
+            }else{
+                oceny = true;
+            }
+        } while (!oceny);
+        System.out.println("Ocena1 : "+ocena1);
+        System.out.println("Ocena2 : "+ocena2);
+        return oceny;
+    }
+    double srednia(){
+        double sredocen = ((double)this.ocena1 + (double)this.ocena2)/2;
+        return sredocen;
+    }
+    }
