@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Lab6Zad8 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String kod;
+        String dolnyZ="10000"; String gornyZ="10FFFF";
+        System.out.println("Podaj kod unikodu heksadecymalnie od 10000 do 10FFFF:" );
+        kod = sc.next();
+        if(kod < dolnyZ && kod > gornyZ ){
+            
+        }
+
+
+
+    }
+}
