@@ -1,0 +1,42 @@
+public class Lab9z1{
+    public static void main(String[] args) {
+    Figura[] figura = new Figura[4];
+    figura[0] = new Linia(5);
+    figura[1] = new Linia(4);
+    figura[2] = new Kwadrat(4);
+    figura[3] = new Kwadrat(3);
+    figura[0].rysuj();
+    figura[1].rysuj();
+    figura[2].rysuj();
+    figura[3].rysuj();
+    }
+}
+ class Figura {
+    protected int dlugosc;
+
+    public Figura(int dlugosc) {
+        this.dlugosc = dlugosc;
+    }
+
+    public void rysuj() {
+        System.out.println("Rysuję figurę o długości: " + dlugosc);
+    }
+}
+class Linia extends Figura {
+    @Override
+    public void rysuj(){
+        System.out.println("Rysuje linie o dlugosci: "+dlugosc);
+    }
+    public Linia(int dlugosc) {
+        super(dlugosc);
+    }
+}
+class Kwadrat extends Figura {
+        public Kwadrat(int dlugosc) {
+            super(dlugosc);
+        }
+        @Override
+        public void rysuj() {
+            System.out.println("Rysuję kwadrat o dlugosci: " + dlugosc);
+        }
+    }
