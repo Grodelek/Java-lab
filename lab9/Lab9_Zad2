@@ -1,0 +1,51 @@
+import java.util.Scanner;
+public class Lab9z2{
+    public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    FiguraN[] figura = new FiguraN[4];
+    String wybor; int wielkosc;
+    for(int i=0;i<4;i++){
+        System.out.println("Figura["+i+"]: Kwadrat/Linia");
+        wybor = sc.next();
+        System.out.println("Dlugosc figury["+i+"]");
+        wielkosc = sc.nextInt();
+        if(wybor.equals("Kwadrat")){
+            figura[i] = new Kwadrat(wielkosc);
+        }else if (wybor.equals("Linia")){
+            figura[i] = new Linia(wielkosc);
+        }else System.out.println("Blad nie ma takiej figury.");
+    }
+    for(int i=0;i<4;i++){
+        figura[i].rysuj();
+    }
+     }
+
+         }
+ abstract class FiguraN {
+    protected int dlugosc;
+    FiguraN(int dlugosc){
+        this.dlugosc = dlugosc;
+    }
+
+    public void rysuj() {
+        System.out.println("Rysuję figurę o długości: " + dlugosc);
+    }
+}
+class Linia extends FiguraN {
+    @Override
+    public void rysuj(){
+        System.out.println("Rysuje linie o dlugosci: "+dlugosc);
+    }
+    public Linia(int dlugosc) {
+        super(dlugosc);
+    }
+}
+class Kwadrat extends FiguraN {
+        public Kwadrat(int dlugosc) {
+            super(dlugosc);
+        }
+        @Override
+        public void rysuj() {
+            System.out.println("Rysuję kwadrat o dlugosci: " + dlugosc);
+        }
+    }
