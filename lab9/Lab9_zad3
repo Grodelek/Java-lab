@@ -1,36 +1,39 @@
-import java.util.Scanner;
-import java.util.Random;
-public class Lab9z2{
-    public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    Random rand = new Random();
-    int los;
-    Figura[] figura = new Figura[4];
-    for(int i=0;i<4;i++){
-        los = rand.nextInt(100)+1;
-        if(los %2 == 0){
-            figura[i] = new Linia();
-        }else if(los%2 !=0){
-            figura[i] = new Kwadrat();
-        }
-        System.out.println(i+" los: "+los);
-    }
-    for(int i=0;i<4;i++){
-        System.out.println(figura[i].getNazwa());
-    }
-     }
+import org.w3c.dom.ls.LSOutput;
 
-         }
- abstract class Figura {
+import java.util.Random;
+public class Lab9z3{
+    public static void main(String[] args) {
+    Figura figura =  new Figura();
+    Random rand = new Random();
+    int los = rand.nextInt(100)+1;
+        System.out.println("Wylosowana liczba to: "+los);
+        if(los%2!=0){
+            figura = new Linia();
+        }
+        if(los%2==0){
+            figura = new Kwadrat();
+        }
+        System.out.println("Stworzono obiekt : "+figura);
+    }
+}
+class Figura {
     Figura(){
     }
-     public String getNazwa(){
-         return getClass().getSimpleName();
-     }
+    @Override
+    public String toString(){
+        return getClass().getSimpleName();
+    }
 }
 class Linia extends Figura {
+    String getLinia(){
+        return getClass().getSimpleName();
+    }
 
 }
 class Kwadrat extends Figura {
+    String getKwadrat(){
+        return getClass().getSimpleName();
+    }
 
     }
+
