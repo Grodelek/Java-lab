@@ -1,0 +1,64 @@
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Lab9z4{
+    public static void main(String[] args) {
+        Figura figura = new Figura(5);
+        Random rand = new Random();
+        Scanner sc = new Scanner(System.in);
+        int los = rand.nextInt(100)+1;
+        int dlugosc = 5;
+    Linia lin1 = new Linia(5);
+    Kwadrat kw1 = new Kwadrat(5);
+
+        if(los %2 != 0){
+           test(kw1);
+        }else{
+           test(lin1);
+        }
+    }
+    static void test(Figura figura) {
+        if (figura instanceof Kwadrat) {
+            figura = new Kwadrat(5);
+            System.out.println("Narysowano Kwadrat o Polu "+((Kwadrat) figura).pole());
+        }
+        else{
+           figura = new Linia(5);
+            System.out.println("Narysowano Linie o dlugosci "+figura.dlugosc);
+        }
+    }
+}
+class Figura {
+    int dlugosc;
+
+    public Figura(int dlugosc) {
+    this.dlugosc = dlugosc;
+    }
+
+    public void rysuj() {
+        System.out.println("Rysuję figurę o długości: " + dlugosc);
+    }
+}
+class Linia extends Figura {
+    @Override
+    public void rysuj(){
+        System.out.println("Rysuje linie o dlugosci: "+dlugosc);
+    }
+    public Linia(int dlugosc) {
+        super(dlugosc);
+    }
+}
+class Kwadrat extends Figura {
+    public Kwadrat(int dlugosc) {
+        super(dlugosc);
+    }
+    @Override
+    public void rysuj() {
+        System.out.println("Rysuję kwadrat o dlugosci: " + dlugosc);
+    }
+    public int pole(){
+        int poleK = dlugosc*dlugosc;
+        return poleK;
+    }
+}
