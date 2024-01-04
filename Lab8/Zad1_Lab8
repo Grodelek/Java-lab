@@ -1,0 +1,35 @@
+public class Zad1Lab8 {
+    public static void main(String[] args) {
+        Point punkt1 = new Point();
+        Point punkt2 = new Point(10,20);
+        punkt1.przesun(5,15);
+        punkt1.wypisz();
+        punkt2.wypisz();
+        System.out.println("Po wyzerowaniu:");
+        punkt1.wyzeruj();
+        punkt1.wypisz();
+
+        }
+}
+class Point{
+    int x;
+    int y;
+    Point(){
+
+    }
+    Point(int x,int y){
+        this.x = x;
+        this.y = y;
+    }
+    void wyzeruj(){
+        this.x = 0;
+        this.y = 0;
+    }
+    void przesun(int x,int y){
+        this.x = x;
+        this.y = y;
+    }
+    void wypisz(){
+        System.out.println(this.x+" "+this.y);
+    }
+}
