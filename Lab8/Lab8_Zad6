@@ -1,0 +1,47 @@
+import java.util.Scanner;
+public class Lab8Zad6{
+    public static void main(String args[]) {
+        Student2[] student = new Student2[3];
+        student[0] = new Student2("Artur", "Grodel");
+        student[1] = new Student2("Karol", "Kowalski");
+        student[2] = new Student2("Dominik", "Waśniak");
+        student[0].wstawOcene();
+        student[1].wstawOcene();
+        student[2].wstawOcene();
+        System.out.println("Srednia studenta "+student[0].imie+" "+student[0].nazwisko+" wynosi: "+student[0].srednia());
+        System.out.println("Srednia studenta "+student[1].imie+" "+student[1].nazwisko+" wynosi: "+student[1].srednia());
+        System.out.println("Srednia studenta "+student[2].imie+" "+student[2].nazwisko+" wynosi: "+student[2].srednia());
+    }
+}
+class Student2{
+    private int ocena1;
+    private int ocena2;
+    String imie;
+    String nazwisko;
+    Student2(String imie, String nazwisko){
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+    }
+    boolean wstawOcene(){
+        Scanner sc = new Scanner(System.in);
+        boolean sprawdz=false;
+        do {
+            System.out.println("Podaj ocene 1:");
+            this.ocena1 = sc.nextInt();
+            System.out.println("Podaj ocene 2:");
+            this.ocena2 = sc.nextInt();
+            if((this.ocena1 >=2 && this.ocena1 <= 5) && (this.ocena2 >=2 && this.ocena2 <=5)){
+                sprawdz = true;
+            }else{
+                System.out.println("Blad podaj liczbe ponownie");
+                sprawdz=false;
+            }
+
+        }while(!sprawdz);
+        return true;
+    }
+    double srednia(){
+        double srednia = ((double)this.ocena1+(double)this.ocena2)/2;
+        return srednia;
+    }
+}
