@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class Lab8Zad7{
+    public static void main(String args[]) {
+    }
+}
+class Book{
+    String autor;
+    String tytul;
+    boolean wypozyczona;
+    Book(String autor, String tytul){
+        this.autor = autor;
+        this.tytul = tytul;
+    }
+}
