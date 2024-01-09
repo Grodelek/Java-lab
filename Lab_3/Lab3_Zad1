@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Lab3Z1 {
+    public static void main(String[] args) {
+    double[] x = new double[5];
+    readTab1D(x);
+    printTab1D(x);
+    
+    }
+    static void readTab1D(double[] tab){
+        Scanner sc = new Scanner(System.in);
+         for(int i=0;i<tab.length;i++){
+             System.out.println("Podaj tab["+i+"]");
+             tab[i] = sc.nextInt();
+         }
+    }
+    static double[] printTab1D(double[] tab){
+        for(int i=0;i<tab.length;i++){
+            System.out.print(tab[i]+" ");
+        }
+        return tab;
+    }
+}
