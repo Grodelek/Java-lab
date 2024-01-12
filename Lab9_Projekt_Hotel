@@ -1,0 +1,49 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Room[] room = new Room[3];
+        room[0] = new Room();
+        room[1] = new Room();
+        room[2] = new Room();
+    for(int i=0;i<3;i++){
+        System.out.println("Podaj numer pokoju dla pokoju "+i);
+        room[i].numer = sc.nextInt();
+        System.out.println("Podaj typ pokoju dla pokoju "+i);
+        room[i].typ = sc.next();
+    }
+    for(int i=0;i<3;i++){
+        System.out.println("Numer pokoju "+i+" :"+room[i].numer);
+        System.out.println("Typ pokoju "+i+" :"+room[i].typ);
+    }
+    for(int i=0;i<3;i++){
+        System.out.println("Podaj numer pokoju ktory chcesz zarezerwowac");
+        room[i].reservation = sc.nextInt();
+        if(room[i].reservation == room[i].numer){
+            room[i].isReserved();
+        }
+    }
+
+    }
+}class Hotel
+{
+    boolean isReserved() {
+        boolean reserved=true;
+        if (reserved) {
+            try {
+                throw new IllegalStateException("RoomAlreadyBookedException");
+            } catch (IllegalStateException e) {
+                System.out.println("Caught exception: " + e.getMessage());
+            }
+        } else {
+            System.out.println("Room reserved successfully");
+        }
+        return reserved;
+    }
+}
+class Room extends Hotel{
+    Room(){};
+    int numer;
+    String typ;
+    int reservation;
+}
