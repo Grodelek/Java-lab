@@ -18,6 +18,7 @@ class Student2{
     boolean wstawOcene(){
         Scanner sc = new Scanner(System.in);
         boolean sprawdz=false;
+        int blednaOcena=0;
         do {
             System.out.println("Podaj ocene 1:");
             this.ocena1 = sc.nextInt();
@@ -25,7 +26,13 @@ class Student2{
             this.ocena2 = sc.nextInt();
             try{
             if((this.ocena1 < 1 || this.ocena1 >6) || (this.ocena2 <1 || this.ocena2 >6)){
-                throw new IncorrectGradeException("Nieprawidlowa ocena",Math.max(this.ocena1,this.ocena2));
+                if(this.ocena1 <1 || this.ocena1 >6){
+                    blednaOcena =this.ocena1;
+                }
+                if(this.ocena2 <1 || this.ocena2 >6){
+                    blednaOcena = this.ocena2;
+                }
+                throw new IncorrectGradeException("Nieprawidlowa ocena",blednaOcena);
             }
             }catch (IncorrectGradeException e){
                 System.out.println(e.getMessage()+" "+e.getIncorrectGrade());
