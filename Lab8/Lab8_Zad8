@@ -1,0 +1,45 @@
+public class Lab8Zad8{
+    public static void main(String[] args) {
+    Czytelnik czytelnik = new Czytelnik("Grodel");
+    Czytelnik czytelnik2 = new Czytelnik("Kobylecki");
+    Book book1 = new Book("Xyz","Opowiesci Pana Kleksa");
+    Book book2 = new Book("Zxy","Zwiadowcy");
+    czytelnik.wypozycz(book1);
+    czytelnik.wypozycz(book2);
+    czytelnik.zwroc(book1);
+    czytelnik2.wypozycz(book1);
+
+
+    }
+}
+class Book{
+    String autor;
+    String tytul;
+    boolean wypozyczona;
+    Book(String autor, String tytul){
+        this.autor = autor;
+        this.tytul = tytul;
+    }
+}
+class Czytelnik{
+    String nazwisko;
+    Book book1;
+    Book book2;
+    Czytelnik(String nazwisko){
+        this.nazwisko = nazwisko;
+    }
+    void wypozycz(Book book) {
+        if (book.wypozyczona) {
+            System.out.println("Ksiazka: "+book.tytul+" jest juz wypozyczona.");
+        } else {
+            book.wypozyczona = true;
+            System.out.println("Ksiazka "+book.tytul+ " zostala pomyslnie wypozyczona przez czytelnika : "+nazwisko);
+        }
+    }
+    void zwroc(Book book){
+        if(book.wypozyczona){
+            book.wypozyczona = false;
+            System.out.println("Ksiazka "+book.tytul+" zostala zwrocona przez czytelnika: "+nazwisko);
+        }
+     }
+    }
