@@ -1,0 +1,59 @@
+public class Lab11Zad5{
+    public static void main(String[] args) {
+        Czytelnik czytelnik = new Czytelnik("Grodel");
+        Book book1 = new Book("Xyz","Opowiesci Pana Kleksa");
+        Book book2 = new Book("Abc","Zwiadowcy");
+        Book book3 = new Book("Def","Zwiadowcsaasdasasdy");
+        czytelnik.wypozycz(book1);
+        czytelnik.wypozycz(book2);
+        czytelnik.wypozycz(book3);
+    }
+}
+class Book{
+    String autor;
+    String tytul;
+    boolean wypozyczona;
+    Book(String autor, String tytul){
+        this.autor = autor;
+        this.tytul = tytul;
+    }
+}
+class Czytelnik{
+   final int limitWypozyczen = 2;
+   int LiczbaMaxWyp=0;
+    String nazwisko;
+    Czytelnik(String nazwisko){
+        this.nazwisko = nazwisko;
+    }
+    void wypozycz(Book book) {
+        if(LiczbaMaxWyp >= limitWypozyczen){
+            try{
+                throw new BookReservated("Nie mozna wypozyczyc wiecej niz dwoch ksiazek");
+            }catch(BookReservated e){
+                System.out.println(e.getMessage());
+            }
+        }
+        else if (book.wypozyczona) {
+            try{
+                throw new BookReservated("Ksiazka zostala juz wypozyczona");
+            }catch(BookReservated e){
+                System.out.println(e.getMessage());
+            }
+        } else {
+            book.wypozyczona = true;
+            LiczbaMaxWyp++;
+            System.out.println("Ksiazka "+book.tytul+ " zostala pomyslnie wypozyczona przez czytelnika : "+nazwisko);
+        }
+    }
+    void zwroc(Book book){
+        if(book.wypozyczona){
+            book.wypozyczona = false;
+            System.out.println("Ksiazka "+book.tytul+" zostala zwrocona przez czytelnika: "+nazwisko);
+        }
+    }
+}
+class BookReservated extends Exception{
+    BookReservated(String message){
+        super(message);
+    }
+}
