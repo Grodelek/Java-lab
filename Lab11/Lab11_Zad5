@@ -1,12 +1,15 @@
 public class Lab11Zad5{
     public static void main(String[] args) {
         Czytelnik czytelnik = new Czytelnik("Grodel");
+        Czytelnik czytelnik2 = new Czytelnik("Kobylecki");
         Book book1 = new Book("Xyz","Opowiesci Pana Kleksa");
         Book book2 = new Book("Abc","Zwiadowcy");
-        Book book3 = new Book("Def","Zwiadowcsaasdasasdy");
+        Book book3 = new Book("Def","Wladca pierscieni");
         czytelnik.wypozycz(book1);
         czytelnik.wypozycz(book2);
         czytelnik.wypozycz(book3);
+        czytelnik2.wypozycz(book3);
+
     }
 }
 class Book{
