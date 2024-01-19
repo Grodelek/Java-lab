@@ -1,0 +1,28 @@
+public class Lab12Zad2{
+public static void main(String[]args){
+    Obywatel obywatel = new Obywatel();
+    Obywatel obywatel2 = new Obywatel();
+    }
+}
+
+ class Obywatel{
+        String nazwisko;
+        String imie;
+        String pesel;
+        double dochod;
+        void podajDane(String nazwisko,String imie,String pesel,double dochod){
+                this.nazwisko = nazwisko;
+                this.imie = imie;
+                this.pesel = pesel;
+                this.dochod = dochod;
+        }
+        void drukujDane(){
+                System.out.println("Nazwisko: "+this.nazwisko);
+                System.out.println("Imie: "+this.imie);
+                System.out.println("Pesel: "+this.pesel);
+                System.out.println("Dochod: "+this.dochod);
+        }
+        Obywatel(){};
+        Obywatel(String nazwisko,String imie,String pesel,double dochod){};
+}
+//Wykonac serializacje i deserializacje
