@@ -1,11 +1,36 @@
+import java.io.*;
+
 public class Lab12Zad2{
-public static void main(String[]args){
-    Obywatel obywatel = new Obywatel();
+public static void main(String[]args) {
+    Obywatel obywatel = new Obywatel("Grodel", "Artur", "1234567891", 7000);
     Obywatel obywatel2 = new Obywatel();
+    obywatel2.podajDane("Kobylecki", "Andrzej", "1056443213", 7000);
+    //Serializacja obiektow obywatel do bajtow
+    try {
+        ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("obywatelser1.dat"));
+        outputStream.writeObject(obywatel);
+        outputStream.writeObject(obywatel2);
+        System.out.println("Obiekt zostal  zserializowany i zapisany do pliku");
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    //Deserializacja obiektow obywatel z bajtow
+    try(ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("obywatelser1.dat"))){
+        Obywatel deserobywatel = (Obywatel) inputStream.readObject();
+        Obywatel deserobywatel2 = (Obywatel) inputStream.readObject();
+        System.out.println("Odczytane dane obywatela 1:");
+        deserobywatel.drukujDane();
+        System.out.println();
+        System.out.println("Odczytane dane obywatela 2:");
+        deserobywatel2.drukujDane();
+    }
+    catch(IOException | ClassNotFoundException e){
+        e.printStackTrace();
+    }
     }
 }
 
- class Obywatel{
+ class Obywatel implements Serializable{
         String nazwisko;
         String imie;
         String pesel;
@@ -23,6 +48,11 @@ public static void main(String[]args){
                 System.out.println("Dochod: "+this.dochod);
         }
         Obywatel(){};
-        Obywatel(String nazwisko,String imie,String pesel,double dochod){};
+        Obywatel(String nazwisko,String imie,String pesel,double dochod){
+            this.nazwisko = nazwisko;
+            this.imie = imie;
+            this.pesel = pesel;
+            this.dochod = dochod;
+        };
 }
-//Wykonac serializacje i deserializacje
+
