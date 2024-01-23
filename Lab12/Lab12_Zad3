@@ -1,0 +1,77 @@
+import java.io.*;
+
+public class Lab12Zad3 {
+    public static void main(String[] args) {
+        Obywatel obywatel = new Obywatel("Grodel", "Artur", "1234567891", 7000);
+        Obywatel obywatel2 = new Obywatel();
+        obywatel2.podajDane("Kobylecki", "Andrzej", "1056443213", 7000);
+
+        // Serializacja obiektów Obywatel do bajtów
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("obywatelser2.dat"))) {
+            outputStream.writeObject(obywatel);
+            outputStream.writeObject(obywatel2);
+            System.out.println("Obiekt został zserializowany i zapisany do pliku");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Deserializacja obiektów Obywatel z bajtów
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("obywatelser2.dat"))) {
+            Obywatel deserObywatel = (Obywatel) inputStream.readObject();
+            Obywatel deserObywatel2 = (Obywatel) inputStream.readObject();
+            System.out.println("Odczytane dane obywatela 1:");
+            deserObywatel.drukujDane();
+            System.out.println();
+            System.out.println("Odczytane dane obywatela 2:");
+            deserObywatel2.drukujDane();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class Obywatel implements Externalizable {
+    String nazwisko;
+    String imie;
+    String pesel;
+    double dochod;
+    Obywatel(){}
+
+    void podajDane(String nazwisko, String imie, String pesel, double dochod) {
+        this.nazwisko = nazwisko;
+        this.imie = imie;
+        this.pesel = pesel;
+        this.dochod = dochod;
+    }
+
+    void drukujDane() {
+        System.out.println("Nazwisko: " + this.nazwisko);
+        System.out.println("Imie: " + this.imie);
+        System.out.println("Pesel: " + this.pesel);
+        System.out.println("Dochod: " + this.dochod);
+    }
+
+
+    Obywatel(String nazwisko, String imie, String pesel, double dochod) {
+        this.nazwisko = nazwisko;
+        this.imie = imie;
+        this.pesel = pesel;
+        this.dochod = dochod;
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(nazwisko);
+        out.writeObject(imie);
+        out.writeObject(pesel);
+        out.writeDouble(dochod);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        nazwisko = (String) in.readObject();
+        imie = (String) in.readObject();
+        pesel = (String) in.readObject();
+        dochod = in.readDouble();
+    }
+}
