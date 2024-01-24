@@ -1,77 +1,83 @@
-public class Lab10z1 {
+import java.io.*;
+
+public class Lab10zad1 {
     public static void main(String[] args) {
-    Trojkat trojkat = new Trojkat();
-    Kwadrat kwadrat = new Kwadrat();
-    Prostokat prostokat = new Prostokat();
-    Trapez trapez = new Trapez();
-    trojkat.a = 5;
-    trojkat.h = 7;
-    kwadrat.a = 5;
-    prostokat.a=6;
-    prostokat.b=5;
-    trapez.a = 5;
-    trapez.b = 6;
-    trapez.h = 4;
-        System.out.println("Pole trojkata wynosi: "+trojkat.poleTrojkata());
-        System.out.println("Pole kwadratu wynosi: "+kwadrat.poleKwadratu());
-        System.out.println("Pole prostokatu wynosi: "+prostokat.poleProstokata());
-        System.out.println("Pole trapezu wynosi: "+trapez.poleTrapezu());
+    Trojkat trojkat = new Trojkat(5,6);
+    Kwadrat kwadrat = new Kwadrat(5);
+    Prostokat prostokat = new Prostokat(4,6);
+    Trapez trapez = new Trapez(4,6,2);
+    trojkat.poleTrojkata();
+    kwadrat.poleKwadratu();
+    prostokat.poleProstokata();
+    trapez.poleTrapezu();
     }
 }
 interface Obliczenia{
-    int poleTrojkata();
-    int poleKwadratu();
-    int poleProstokata();
-    int poleTrapezu();
+    int poleTrojkata(int a,int h);
+    int poleKwadratu(int a);
+    int poleProstokata(int a, int b);
+    int poleTrapezu(int a,int b,int h);
 }
 class Adapt implements Obliczenia{
-    int a; int b; int h;
-    int pTroj;
-    int pK;
-    int pP; int pTr;
+    @Override
+    public int poleTrojkata(int a,int h) {
+        return 0;
+    }
+    @Override
+    public int poleKwadratu(int a){
+    return 0;
+    }
+    @Override
+    public int poleProstokata(int a,int b){
+    return 0;
+    }
+    @Override
+    public int poleTrapezu(int a,int b,int h) {
+    return 0;
+    }
 
-   @Override
-    public int poleTrojkata(){
-    pTroj = (a*h)/2;
-    return pTroj;
-   }
-   @Override
-    public int poleKwadratu(){
-    pK = a*a;
-    return pK;
-   }
-   @Override
-    public int poleProstokata(){
-    pP = a*b;
-    return pP;
-   }
-   @Override
-    public int poleTrapezu(){
-    pTr = ((a+b)*h)/2;
-    return pTr;
-   }
 }
 class Trojkat extends Adapt{
     @Override
-    public int poleTrojkata() {
-        return super.poleTrojkata();
+    public int poleTrojkata(int a,int h){
+        return 0.5* (double)a * (double)h);
     }
 }
 class Kwadrat extends Adapt{
+    int a;
+    Kwadrat(int a){
+        this.a = a;
+    }
     @Override
-    public int poleKwadratu(){
-        return super.poleKwadratu();
+    public void poleKwadratu(){
+        System.out.println("Pole kwadratu: "+this.a * this.a);
+
     }
 }
 class Prostokat extends Adapt{
+    int a;
+    int b;
+    Prostokat(int a,int b){
+        this.a = a;
+        this.b = b;
+    }
     @Override
-    public int poleProstokata(){
-        return super.poleProstokata();
+    public void poleProstokata(){
+        System.out.println("Pole prostokata: "+this.a*this.b);
     }
 }
 class Trapez extends Adapt{
+    int a;
+    int b;
+    int h;
+    Trapez(int a, int b, int h){
+        this.a = a;
+        this.b = b;
+        this.h = h;
+    }
     @Override
-    public int poleTrapezu(){
-        return super.poleTrapezu();
+    public void poleTrapezu(){
+        System.out.println("Pole trapezu: "+((this.a+this.b)*h)/2);
     }
 }
+
