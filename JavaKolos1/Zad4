@@ -1,0 +1,20 @@
+//Uzupelnij klase Car
+
+public class Main{
+    public static void main(String[] args) {
+        System.out.printf("Predkosc maksymalna samochodu to %.0f ",new Car(220,1500).vmax());
+    }
+}
+class Car{
+    float moc;
+    float masa_pojazdu;
+    Car(float moc, float masa_pojazdu){
+        this.moc = moc;
+        this.masa_pojazdu = masa_pojazdu;
+    }
+    float vmax(){
+        float vmax = moc/masa_pojazdu*1500;
+        return vmax;
+    }
+}
+
