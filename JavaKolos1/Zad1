@@ -1,0 +1,34 @@
+/*
+public class Main{
+    public static void main(String[] args) {
+        Cat[] cat = new Cat[1];
+        cat[0].voice();
+    }
+}
+class Cat{
+    void voice(){
+        System.out.println("Miauu");
+    }
+}
+ Zad: //Czy kod sie skompiluje poprawnie?
+ Odp: Nie, należy stworzyc instancje i przypisac do obiektu cat[0]
+ 
+
+
+
+
+Rozwiazanie:
+*/
+public class Main{
+    public static void main(String[] args) {
+        Cat[] cat = new Cat[1];
+        cat[0] = new Cat();
+        cat[0].voice();
+    }
+}
+class Cat{
+    void voice(){
+        System.out.println("Miauu");
+    }
+
+}
