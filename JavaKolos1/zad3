@@ -1,0 +1,27 @@
+/* Uzupelnij program o klase Dog i Dachschund */
+abstract class Animal{
+    abstract void voice();
+}
+abstract class Dog extends Animal{
+    String imie;
+}
+class Dachschund extends Dog{
+    Dachschund(String imie){
+        super.imie = imie;
+    }
+    @Override
+    void voice(){
+        System.out.println("Mam na imie "+super.imie);
+    }
+}
+
+public class Main{
+    public static void main(String[] args) {
+     Dog[] jamniki = new Dachschund[2];
+     jamniki[0] = new Dachschund("Azor");
+     jamniki[1] = new Dachschund("Rex");
+     for(Dog jamnik:jamniki)
+         jamnik.voice();
+
+    }
+}
