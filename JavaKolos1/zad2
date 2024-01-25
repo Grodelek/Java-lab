@@ -1,0 +1,32 @@
+//Zad: Uzupelnij program o brakujaca klase
+
+public class Main{
+    public static void main(String[] args) {
+        Node head = new Node("Ala",
+                new Node("ma",
+                        new Node("kota")));
+        Node node = head;
+        while(true){
+            System.out.println(node.element);
+            if(node.next == null)
+            break;
+            node = node.next;
+        }
+    }
+}
+/* 
+//Rozwiazanie: 
+
+class Node{
+    String element;
+    Node next;
+    Node(String element){
+        this.element = element;
+        this.next = null;
+    }
+    Node(String element,Node next){
+        this.element = element;
+        this.next = next;
+    }
+}
+*/
