@@ -1,35 +1,40 @@
-public class Lab10z3{
+
+public class Lab10_Zad3{
     public static void main(String[] args) {
-    Ksiazka ksiazka = new Ksiazka(1);
-    Czasopismo czasopismo = new Czasopismo(2);
+    Ksiazka ksiazka = new Ksiazka("Akademia Pana Kleksa","xyz");
+    Czasopismo czasopismo = new Czasopismo("Zwiadowcy",2007);
     Wolumin[] tabObj = new Wolumin[2];
     tabObj[0] = ksiazka;
     tabObj[1] = czasopismo;
-    if(tabObj[0] instanceof Ksiazka){
-        System.out.println("tabObj[0] jest instancja klasy Ksiazka");
-    }
-    if(tabObj[1] instanceof Czasopismo){
-            System.out.println("tabObj[1] jest instancja klasy Czasopismo");
+        System.out.println(tabObj[0].id);
+        System.out.println(tabObj[1].id);
+        if(tabObj.length>4){
+            System.out.println("Czytelnik moze miec wypozyczone max 4 woluminy.");
+        }
         }
     }
-}
 abstract class Wolumin{
+    private static int nextId=1;
     protected int id;
-    Wolumin(int id){
-        this.id = id;
+    Wolumin(){
+        this.id = nextId++;
     }
 }
 class Ksiazka extends Wolumin{
-    Ksiazka(int id){
-        super(id);
-    }
     String tytul;
     String autor;
+    Ksiazka(String tytul,String autor){
+        super();
+        this.tytul = tytul;
+        this.autor = autor;
+    }
 }
 class Czasopismo extends Wolumin{
-    Czasopismo(int id){
-        super(id);
-    }
     String tytul;
-    int numer_wydania;
+    int numerWydania;
+    Czasopismo(String tytul,int numerWydania){
+        super();
+        this.tytul = tytul;
+        this.numerWydania = numerWydania;
+    }
 }
