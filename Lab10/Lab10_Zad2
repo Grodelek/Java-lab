@@ -1,41 +1,35 @@
-public class Lab10z2 {
+
+public class Main{
     public static void main(String[] args) {
-    Bankier bankier = new Bankier("Artur") {
-      @Override
-        double licz(double num1,double num2){
-          return num1+num2;
-      }
-    };
-    PodstepnyBankier podBankier = new PodstepnyBankier("Kacper");
-    System.out.println("Bankier "+bankier.imie+" = "+bankier.licz(2,4));
-    System.out.println("Podstepny Bankier "+podBankier.imie+" = "+podBankier.licz(2,4));
+    UczciwyBankier uczciwyBankier = new UczciwyBankier();
+    PodstepnyBankier podstepnyBankier = new PodstepnyBankier();
+        System.out.println(uczciwyBankier.imie+"wynik: "+uczciwyBankier.licz(5,6));
+        System.out.println(podstepnyBankier.imie+"wynik: "+podstepnyBankier.licz(5,6));
+        }
     }
-}
 abstract class Bankier{
     String imie;
     Bankier(String imie){
         this.imie = imie;
     }
-    abstract double licz(double num1, double num2);
-
+    abstract double licz(double num1, int num2);
 }
 class UczciwyBankier extends Bankier{
-    UczciwyBankier(String imie) {
-        super(imie);
+    UczciwyBankier(){
+        super("Artur");
     }
-
     @Override
-    double licz(double num1, double num2) {
+    double licz(double num1,int num2){
         return num1+num2;
     }
 }
 class PodstepnyBankier extends Bankier{
-    PodstepnyBankier(String imie){
-        super(imie);
+    PodstepnyBankier(){
+        super("Kacper");
     }
     @Override
-    double licz(double num1,double num2){
-        double zmniejsz = (num1+num2) * 0.20;
-        return zmniejsz;
+    double licz(double num1, int num2){
+        return (num1+num2)*0.8;
     }
+
 }
