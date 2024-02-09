@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.Scanner;
+public class Main implements Serializable {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Student student = new Student("Artur","Grodel");
+
+
+       try(ObjectOutputStream objOS = new ObjectOutputStream(new FileOutputStream("plik.ser"))){
+           objOS.writeObject(student.imie);
+           objOS.writeObject(student.nazwisko);
+           objOS.close();
+       }catch(IOException e){
+           e.printStackTrace();
+       }
+    }
+}
+class Student{
+    public String imie;
+    String nazwisko;
+    Student(String imie,String nazwisko){
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+    }
+}
