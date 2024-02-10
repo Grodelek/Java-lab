@@ -1,58 +1,55 @@
 import java.io.*;
+import java.util.Scanner;
+public class Lab12_Zad2{
+    public static void main(String[] args) throws FileNotFoundException {
+        Scanner sc = new Scanner(System.in);
+        Obywatel obywatel1 = new Obywatel();
+        Obywatel obywatel2 = new Obywatel("Kacper","Kobylecki","0131222333",2100.2);
+        obywatel1.podajDane("Artur","Grodel","0111122333",2000.0);
 
-public class Lab12Zad2{
-public static void main(String[]args) {
-    Obywatel obywatel = new Obywatel("Grodel", "Artur", "1234567891", 7000);
-    Obywatel obywatel2 = new Obywatel();
-    obywatel2.podajDane("Kobylecki", "Andrzej", "1056443213", 7000);
-    //Serializacja obiektow obywatel do bajtow
-    try {
-        ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("obywatelser1.dat"));
-        outputStream.writeObject(obywatel);
-        outputStream.writeObject(obywatel2);
-        System.out.println("Obiekt zostal  zserializowany i zapisany do pliku");
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-    //Deserializacja obiektow obywatel z bajtow
-    try(ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("obywatelser1.dat"))){
-        Obywatel deserobywatel = (Obywatel) inputStream.readObject();
-        Obywatel deserobywatel2 = (Obywatel) inputStream.readObject();
-        System.out.println("Odczytane dane obywatela 1:");
-        deserobywatel.drukujDane();
-        System.out.println();
-        System.out.println("Odczytane dane obywatela 2:");
-        deserobywatel2.drukujDane();
-    }
-    catch(IOException | ClassNotFoundException e){
-        e.printStackTrace();
-    }
+        try(ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("obywatel1ser.dat"))))
+        {
+        out.writeObject(obywatel1);
+        out.writeObject(obywatel2);
+            System.out.println("Obiekt zostal zserializowany i zapisany.");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+
+        try(ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("obywatel1ser.dat"))))
+        {
+            obywatel1 = (Obywatel) in.readObject();
+            System.out.println("Obiekt zostal zdeserializowany.");
+        }catch(IOException | ClassNotFoundException e){
+            e.printStackTrace();
+            return;
+        }
+
+
     }
 }
-
- class Obywatel implements Serializable{
-        String nazwisko;
-        String imie;
-        String pesel;
-        double dochod;
-        void podajDane(String nazwisko,String imie,String pesel,double dochod){
-                this.nazwisko = nazwisko;
-                this.imie = imie;
-                this.pesel = pesel;
-                this.dochod = dochod;
-        }
-        void drukujDane(){
-                System.out.println("Nazwisko: "+this.nazwisko);
-                System.out.println("Imie: "+this.imie);
-                System.out.println("Pesel: "+this.pesel);
-                System.out.println("Dochod: "+this.dochod);
-        }
-        Obywatel(){};
-        Obywatel(String nazwisko,String imie,String pesel,double dochod){
-            this.nazwisko = nazwisko;
-            this.imie = imie;
-            this.pesel = pesel;
-            this.dochod = dochod;
-        };
+class Obywatel implements Serializable{
+    String imie;
+    String nazwisko;
+    String pesel;
+    double dochod;
+    Obywatel(){}
+    Obywatel(String imie,String nazwisko,String pesel,double dochod){
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.pesel = pesel;
+        this.dochod = dochod;
+    }
+    void podajDane(String imie,String nazwisko,String pesel,double dochod){
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.pesel = pesel;
+        this.dochod = dochod;
+    }
+    void drukujDane(){
+        System.out.println("Imie: "+this.imie);
+        System.out.println("Imie: "+this.nazwisko);
+        System.out.println("Imie: "+this.imie);
+        System.out.println("Imie: "+this.imie);
+    }
 }
-
