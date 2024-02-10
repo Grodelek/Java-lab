@@ -1,23 +1,35 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Lab12_Zad1{
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        double[] tab= new double[5];
-    try(BufferedWriter writer = new BufferedWriter(new FileWriter("numbers.dat"))){
-        for(int i=0;i<tab.length;i++){
-            System.out.println("Podaj tab["+i+"]");
-            tab[i] = sc.nextDouble();
-            writer.write(Double.toString(tab[i]));
-            writer.write("\n");
+        double[] tab = new double[5];
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("numbers.dat"))) {
+            for (int i = 0; i < tab.length; i++) {
+                System.out.println("Podaj tab[" + i + "]");
+                tab[i] = sc.nextDouble();
+                writer.write(Double.toString(tab[i]));
+                writer.write("\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        writer.close();
 
-    }catch(IOException e){
-        e.printStackTrace();
-    }
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("numbers.dat"))) {
+            String linia;
+
+            while ((linia = bufferedReader.readLine()) != null) {
+                try {
+                    double liczba = Double.parseDouble(linia);
+                    System.out.println("Odczytano liczbę: " + liczba);
+                } catch (NumberFormatException e) {
+                    System.err.println("Błąd formatu liczby w pliku: " + linia);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
