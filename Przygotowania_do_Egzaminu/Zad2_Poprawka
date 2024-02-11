@@ -1,0 +1,59 @@
+import java.io. *;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class KolosPoprawkowyZad1{
+    public static void main(String[] args) throws IOException {
+    Prostokat p1 = new Prostokat();
+    Prostokat p2 = new Prostokat(2,3);
+    ProstokatKolorowy c1 = new ProstokatKolorowy();
+    ProstokatKolorowy c2 = new ProstokatKolorowy(4,8,7);
+    p1.ustawParProst(5,6);
+    c1.ustawParProst(1,1);
+    p1.rysujProst();
+    c1.rysujProstokatC();
+    
+    p2.rysujProst();
+    c2.rysujProstokatC();
+
+    }
+}
+class Prostokat{
+    private double p1;
+    private double p2;
+    Prostokat(){
+        p1=0;
+        p2=0;
+    }
+    Prostokat(double p1,double p2){
+        this.p1 = p1;
+        this.p2 = p2;
+    }
+    void ustawParProst(int p1,int p2){
+        this.p1 = p1;
+        this.p2 = p2;
+    }
+    void rysujProst(){
+        System.out.println("Narysowano prostokat o bokach "+p1+" i "+p2);
+    }
+    double getP1(){
+        return p1;
+    }
+    double getP2(){
+        return p2;
+    }
+}
+class ProstokatKolorowy extends Prostokat {
+    int kolor;
+    ProstokatKolorowy(){
+        kolor = 0;
+    }
+    ProstokatKolorowy(int kolor,double p1,double p2){
+        super(p1,p2);
+        this.kolor = kolor;
+    }
+    void rysujProstokatC(){
+        System.out.println("Boki prostokata: "+getP1()+" "+getP2()+" Kolor: "+this.kolor);
+    }
+}
+
