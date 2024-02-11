@@ -1,0 +1,39 @@
+import java.io. *;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class KolosPoprawkowyZad3{
+    public static void main(String[] args) throws IOException {
+    Compute c1 = new Compute();
+        System.out.println(c1.computeMin(2,3));
+        System.out.println(c1.computeAv(3,5));
+    }
+}
+interface Computation{
+    double computeMin(double x,double y);
+    double computeAv(double x,double y);
+}
+class Adapt implements Computation{
+    public double computeMin(double x,double y){
+        if(x>y){
+            return y;
+        }
+        else{
+            return x;
+        }
+    }
+    public double computeAv(double x,double y){
+        return (x+y)/2;
+    }
+}
+class Compute extends Adapt{
+    public double computeAv(double x, double y) {
+        return super.computeAv(x,y);
+    }
+
+    @Override
+    public double computeMin(double x, double y) {
+        return super.computeMin(x, y);
+    }
+}
+
