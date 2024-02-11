@@ -6,23 +6,24 @@ public class Lab12_Zad2{
         Obywatel obywatel1 = new Obywatel();
         Obywatel obywatel2 = new Obywatel("Kacper","Kobylecki","0131222333",2100.2);
         obywatel1.podajDane("Artur","Grodel","0111122333",2000.0);
-
-        try(ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("obywatel1ser.dat"))))
-        {
-        out.writeObject(obywatel1);
-        out.writeObject(obywatel2);
-            System.out.println("Obiekt zostal zserializowany i zapisany.");
-        }catch (IOException e){
+        try(ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("obywatelser1.dat")))){
+            out.writeObject(obywatel1);
+            out.writeObject(obywatel2);
+            System.out.println("Plik zostal zserializowany prawidlowo.");
+            out.close();
+        }catch(IOException e){
             e.printStackTrace();
         }
-
-        try(ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("obywatel1ser.dat"))))
-        {
-            obywatel1 = (Obywatel) in.readObject();
-            System.out.println("Obiekt zostal zdeserializowany.");
-        }catch(IOException | ClassNotFoundException e){
+        try(ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("obywatelser1.dat")))){
+        Obywatel readObywatel1 = (Obywatel) in.readObject();
+        Obywatel readObywatel2 = (Obywatel) in.readObject();
+            readObywatel1.drukujDane();
+            readObywatel2.drukujDane();
+        }catch(IOException e){
             e.printStackTrace();
-            return;
+        }
+        catch(ClassNotFoundException e){
+            e.printStackTrace();
         }
 
 
@@ -47,9 +48,10 @@ class Obywatel implements Serializable{
         this.dochod = dochod;
     }
     void drukujDane(){
-        System.out.println("Imie: "+this.imie);
-        System.out.println("Imie: "+this.nazwisko);
-        System.out.println("Imie: "+this.imie);
-        System.out.println("Imie: "+this.imie);
+        System.out.println("Imie: " + this.imie);
+        System.out.println("Nazwisko: " + this.nazwisko);
+        System.out.println("PESEL: " + this.pesel);
+        System.out.println("Dochod: " + this.dochod);
     }
 }
+
