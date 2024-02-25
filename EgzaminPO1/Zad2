@@ -1,0 +1,36 @@
+import java.io.*;
+
+public class Main{
+    public static void main(String[] args){
+    Pracownik[] prac = new Pracownik[10];
+    for(int i=0; i < prac.length; i++){
+        prac[i] = new Pracownik();
+        prac[i].imie = "Adam";
+        prac[i].nazwisko = "Kowalski";
+        prac[i].id = 1;
+    }
+    try{
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("pracownicy.dat"));
+        out.writeObject(prac);
+    } catch(Exception e){
+        e.printStackTrace();
+    }
+    Pracownik[] practest = null;
+    try{
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream("pracownicy.dat"));
+            practest = (Pracownik[]) in.readObject();
+    }catch(Exception e){
+        e.printStackTrace();
+    }
+    if(practest != null){
+        for(int i=0; i<practest.length; i++){
+            System.out.println(practest[i].imie+" "+practest[i].nazwisko+" "+practest[i].id);
+             }
+        }
+    }
+}
+class Pracownik implements Serializable{
+    String nazwisko;
+    String imie;
+    int id;
+}
