@@ -34,3 +34,5 @@ class Pracownik implements Serializable{
     String imie;
     int id;
 }
+#Napisać program tworzący tablice prac 100 obiektów klasy Pracownik o polach nazwisko,imie,id(int).
+#nastepnie serializujacy ja do pliku Pracownicy.dat oraz deserializujacy ją do tablicy practest.Na koniec wydrukować tablice practest.
