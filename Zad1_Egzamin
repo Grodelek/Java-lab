@@ -1,0 +1,34 @@
+public class Zad1{
+    public static void main(String[] args){
+    Buildarr buildarr = new Buildarr();
+    StringBuilder[][] wynik = buildarr.builders("Lan");
+        for(int i=0;i<wynik.length;i++){
+            for(int j=0;j<wynik[i].length;j++){
+                System.out.println(wynik[i][j]);
+            }
+        }
+    }
+}
+class Buildarr{
+    public static StringBuilder[][] builders(String tekst){
+        StringBuilder[][] tab = new StringBuilder[4][4];
+        try{
+            for (int i =0;i<tab.length;i++){
+                for(int j=0;j<tab[i].length;j++){
+                    tab[i][j] = new StringBuilder();
+                    if(tekst!=null) {
+                    tab[i][j].append(tekst);
+                    }
+                    tab[i][j].append(i).append(j);
+                }
+            }
+        }catch(IllegalArgumentException e){
+            e.getMessage();
+        }
+        return tab;
+    }
+}
+#Zdefiniowac klase Buildarr zawierajcą statyczną metodę buildarray tworzącą i
+#zwracającą dwuwymiarową tablice obiektów typu StringBuilder zawierajacych napisy 
+#zlozone z obiektu klasy String przekazanego jak o parametry metody oraz indeksów 
+#danego elementu tablicy. W metodzie main() klasy Zad1 wywolac metode buildarray i wydrukowac wyniki
