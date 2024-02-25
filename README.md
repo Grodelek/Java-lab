@@ -1,1 +1,1 @@
-$${\color{green}Większość zadań z Programowania Obiektowego 1.}$$
+$${\color{green}Większość \space zadań \space z \space Programowania \space Obiektowego\space 1.}$$
