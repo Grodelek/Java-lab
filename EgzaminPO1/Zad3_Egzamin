@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Zad3{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = 0;
+        try {
+            System.out.println("Podaj liczbe [-400,400]");
+            num = sc.nextInt();
+            if (num < -400 || num > 400) {
+                throw new MyExceptionClass("Liczba nie nalezy do przedzialu", num);
+            }
+        } catch (MyExceptionClass e) {
+            System.out.println(e.getMessage() + ": " +e.getNumber());
+        }
+    }
+}
+class MyExceptionClass extends Exception{
+    private int number;
+    MyExceptionClass(String message,int number){
+        super(message);
+        this.number = number;
+    }
+    public int getNumber(){
+        return number;
+    }
+}
+
+/*Zdefiniowac własną klasę wyjątków MyExceptionClass.
+W metodzie main() klasy Zad3 napisać wczytryweanie liczb typu double. 
+Jeśli wczytywana liczba nie należy do przedziału [-400,400] wygenerować i obsłużyć  wyjątek,
+obsługa wyjątku powinna podawać liczbę która ten wyjątek spowodowała*\
